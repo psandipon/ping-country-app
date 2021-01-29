@@ -54,6 +54,12 @@ export default {
           badge: false
         },
         {
+          icon: "mdi-visit",
+          title: "Visit",
+          to: "/visit",
+          badge: false
+        },
+        {
           icon: "mdi-cart",
           title: "Cart",
           to: "/cart",
