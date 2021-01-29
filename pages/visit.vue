@@ -1,17 +1,15 @@
 <template>
-    <div>
-        <picker />
-    </div>
+  <div>
+    <picker />
+  </div>
 </template>
 
 <script>
-
-import picker from "../components/dropDown"
+import picker from "../components/dropDown.vue";
 
 export default {
-    components: {
-        picker
-    }
-
-}
+  components: {
+    picker
+  }
+};
 </script>

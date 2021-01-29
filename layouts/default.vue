@@ -1,15 +1,23 @@
 <template>
   <div>
-    <navbar />
-    <Nuxt />
+    <navigation />
+    <v-app dark>
+      <v-main>
+        <v-card id="lateral" flat>
+          <v-container>
+            <nuxt />
+          </v-container>
+        </v-card>
+      </v-main>
+    </v-app>
   </div>
 </template>
 <script>
-import navbar from "~/layouts/navbar.vue";
+import navigation from "~/layouts/navigation.vue";
+
 export default {
-  mixins: [global],
   components: {
-    navbar
+    navigation
   },
   data() {
     return {
