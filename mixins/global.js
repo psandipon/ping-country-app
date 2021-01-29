@@ -10,6 +10,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters("jokes", ["getJokeData"])
     // ...mapGetters('user-info', ['getToken']),
     // ...mapGetters('order', ['getNotificationSuccess','getNotificationFail']),
     

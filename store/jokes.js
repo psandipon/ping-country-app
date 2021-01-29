@@ -8,7 +8,7 @@ import {
 
 // initial state
 export const state = () => ({
-  joke:[],
+  joke:{},
  
 })
 
@@ -25,6 +25,7 @@ const mutations = {
 
   SET_JOKE_DATA(state, data) {
     state.joke = data;
+    console.log("mutated")
   },
 
   UNSET_JOKE_DATA(state) {
@@ -41,7 +42,8 @@ const actions = {
     return new Promise((resolve, reject) => {
       Axios.get(random_joke_api)
         .then(function(response) {
-          console.log(response)
+          console.log('here ??',response)
+          commit("SET_JOKE_DATA", response.data)
           resolve(response.data);
         })
         .catch(function(error) {
@@ -49,6 +51,8 @@ const actions = {
         });
     });
   },
+
+
 
 };
 

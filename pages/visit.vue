@@ -16,12 +16,15 @@
       <selected :picked="picked" />
     </div> -->
     <!-- {{  }} -->
+    {{ getJokeData }}
+    -----------------------------------
     <v-progress-circular
       v-if="loading"
       indeterminate
       color="primary"
     ></v-progress-circular>
     <div v-else>
+      {{ jamela }}
       <br />
       {{ joke.setup }}
       <br />
@@ -33,19 +36,27 @@
 </template>
 
 <script>
+import { mapMutations, mapGetters, mapActions  } from 'vuex'
 import selected from "../components/selected";
-import { mapMutations, mapGetters, mapActions } from "vuex";
+// import { mapMutations, mapGetters, mapActions } from "vuex";
+import global from "~/mixins/global.js";
 export default {
   components: {
-    selected
+    selected,
   },
+  mixins: [global],
 
   data: () => ({
     items: ["Foo", "Bar", "Fizz", "Buzz"],
     picked: "",
     joke: {},
-    loading: false
+    loading: false,
+    jamela: "",
   }),
+
+//   computed: {
+//     ...mapGetters("jokes", ["getJokeData"]),
+//   },
 
   created() {
     this.callingJokeMeth();
@@ -53,13 +64,20 @@ export default {
   methods: {
     ...mapActions("jokes", ["getRandomJoke"]),
     callingJokeMeth() {
+      this.jamela = "";
       this.loading = true;
-      this.getRandomJoke().then(res => {
-        console.log(res);
-        this.joke = res;
-        this.loading = false;
-      });
-    }
-  }
+      this.getRandomJoke()
+        .then((res) => {
+          console.log(res);
+          this.joke = res;
+          this.loading = false;
+        })
+        .catch((er) => {
+          console.log("here ???", er);
+          this.loading = false;
+          this.jamela = "jamela hosse";
+        });
+    },
+  },
 };
 </script>

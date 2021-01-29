@@ -23,12 +23,17 @@
           GitHub
         </a>
       </div>
+      {{getJokeData}}
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import global from "~/mixins/global.js";
+export default {
+
+    mixins: [global],
+}
 </script>
 
 <style>

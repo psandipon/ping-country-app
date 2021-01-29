@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{picked}} yuglkuglhui
+        {{picked}}
     </div>
 </template>
 
