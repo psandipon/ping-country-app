@@ -36,13 +36,13 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions  } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from "vuex";
 import selected from "../components/selected";
 // import { mapMutations, mapGetters, mapActions } from "vuex";
 import global from "~/mixins/global.js";
 export default {
   components: {
-    selected,
+    selected
   },
   mixins: [global],
 
@@ -51,12 +51,12 @@ export default {
     picked: "",
     joke: {},
     loading: false,
-    jamela: "",
+    jamela: ""
   }),
 
-//   computed: {
-//     ...mapGetters("jokes", ["getJokeData"]),
-//   },
+  //   computed: {
+  //     ...mapGetters("jokes", ["getJokeData"]),
+  //   },
 
   created() {
     this.callingJokeMeth();
@@ -67,17 +67,17 @@ export default {
       this.jamela = "";
       this.loading = true;
       this.getRandomJoke()
-        .then((res) => {
+        .then(res => {
           console.log(res);
           this.joke = res;
           this.loading = false;
         })
-        .catch((er) => {
+        .catch(er => {
           console.log("here ???", er);
           this.loading = false;
           this.jamela = "jamela hosse";
         });
-    },
-  },
+    }
+  }
 };
 </script>
