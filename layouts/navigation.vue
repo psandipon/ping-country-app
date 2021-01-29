@@ -54,17 +54,17 @@ export default {
           badge: false
         },
         {
-          icon: "mdi-visit",
+          icon: "mdi-map",
           title: "Visit",
           to: "/visit",
           badge: false
-        },
-        {
-          icon: "mdi-cart",
-          title: "Cart",
-          to: "/cart",
-          badge: true
         }
+        // {
+        //   icon: "mdi-cart",
+        //   title: "Cart",
+        //   to: "/cart",
+        //   badge: true
+        // }
       ],
       miniVariant: false,
       right: true,

@@ -23,12 +23,12 @@ import selected from "../components/selected";
 
 export default {
   components: {
-    selected,
+    selected
   },
 
   data: () => ({
     items: ["Foo", "Bar", "Fizz", "Buzz"],
     picked: ""
-  }),
+  })
 };
 </script>
