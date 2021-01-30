@@ -25,11 +25,10 @@ export default {
     return {
       title: "Hello World!"
     };
+  },
+  mounted() {
+    this.fetchCountryData();
   }
-  // mounted() {
-  //   // getAllCountriesData
-  //   this.fetchCountryData();
-  // }
 };
 </script>
 

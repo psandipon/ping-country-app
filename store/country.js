@@ -9,8 +9,7 @@ import {
 
 // initial state
 export const state = () => ({
-    allCountries:{},
- 
+    allCountries:[],
 })
 
 
