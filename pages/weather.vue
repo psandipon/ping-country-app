@@ -1,106 +1,101 @@
 <template>
-  <v-card :loading="loading" class="mx-auto my-12" max-width="374">
-    <template slot="progress">
-      <v-progress-linear
-        color="deep-purple"
-        height="10"
-        indeterminate
-      ></v-progress-linear>
-    </template>
+  <div>
+    <v-card :loading="loading" class="mx-auto my-12" max-width="374">
+      <template slot="progress">
+        <v-progress-linear
+          color="deep-purple"
+          height="10"
+          indeterminate
+        ></v-progress-linear>
+      </template>
 
-    <v-img
-      height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-    ></v-img>
-
-    <v-card-title>Cafe Badilico</v-card-title>
-
-    <v-card-text>
-      <v-row align="center" class="mx-0">
-        <v-rating
-          :value="4.5"
-          color="amber"
+      <v-img height="250" :src="getImageFileName"></v-img>
+      <v-card-title>
+        <v-text-field
+          v-model="picked"
+          label="Input Country Name"
+          @change="call_fetchWeatherData"
+          placeholder="Dense & Rounded"
+          filled
+          rounded
           dense
-          half-increments
-          readonly
-          size="14"
-        ></v-rating>
+        ></v-text-field>
+      </v-card-title>
 
-        <div class="grey--text ml-4">
-          4.5 (413)
+      <v-divider class="mx-4"></v-divider>
+
+      <v-card-title>Today's Weather</v-card-title>
+
+      <v-card-text>
+        <v-chip-group
+          v-model="selection"
+          active-class="deep-purple accent-4 white--text"
+          column
+        >
+          <v-chip>{{ getWeatherData.weather[0].main }}</v-chip>
+
+          <v-chip>{{ getWeatherData.main.temp }} °C</v-chip>
+
+          <v-chip>{{ getWeatherData.main.feels_like }} °C</v-chip>
+        </v-chip-group>
+      </v-card-text>
+
+      <v-card-actions>
+        <!-- <v-btn color="deep-purple lighten-2" text @click="items"> -->
+        <div>
+          <v-row align="center">
+            <v-col cols="12">
+              <v-select
+                :items="items"
+                :menu-props="{ top: true, offsetY: true }"
+                v-model="picked"
+                label="Country"
+                @change="call_fetchWeatherData"
+              ></v-select>
+            </v-col>
+          </v-row>
         </div>
-      </v-row>
 
-      <div class="my-4 subtitle-1">
-        $ • Italian, Cafe
-      </div>
+        <v-progress-circular
+          v-if="loading"
+          indeterminate
+          color="primary"
+        ></v-progress-circular>
 
-      <div>
-        Small plates, salads & sandwiches - an intimate setting with 12 indoor
-        seats plus patio seating.
-      </div>
-    </v-card-text>
-
-    <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-
-    <v-card-text>
-      <v-chip-group
-        v-model="selection"
-        active-class="deep-purple accent-4 white--text"
-        column
-      >
-        <v-chip>5:30PM</v-chip>
-
-        <v-chip>7:30PM</v-chip>
-
-        <v-chip>8:00PM</v-chip>
-
-        <v-chip>9:00PM</v-chip>
-      </v-chip-group>
-    </v-card-text>
-
-    <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text @click="reserve">
-        Reserve
-      </v-btn>
-    </v-card-actions>
-  </v-card>
+        <!-- </v-btn> -->
+      </v-card-actions>
+    </v-card>
+    <!-- <pre style=" text-align: left;"> {{ getWeatherData }} </pre> -->
+  </div>
 </template>
 
 <script>
+import global from "~/mixins/global.js";
 export default {
+  mixins: [global],
+  created() {
+    this.call_fetchWeatherData();
+  },
   data: () => ({
-    weatherData: {
-      coord: { lon: 90.4074, lat: 23.7104 },
-      weather: [{ id: 701, main: "Mist", description: "mist", icon: "50d" }],
-      base: "stations",
-      main: {
-        temp: 294.15,
-        feels_like: 293.65,
-        temp_min: 294.15,
-        temp_max: 294.15,
-        pressure: 1017,
-        humidity: 78
-      },
-      visibility: 1500,
-      wind: { speed: 4.12, deg: 300 },
-      clouds: { all: 40 },
-      dt: 1611981465,
-      sys: {
-        type: 1,
-        id: 9145,
-        country: "BD",
-        sunrise: 1611967193,
-        sunset: 1612006994
-      },
-      timezone: 21600,
-      id: 1185241,
-      name: "Dhaka",
-      cod: 200
+    items: ["Bangladesh", "USA", "Canada", "China", "France"],
+    picked: ""
+  }),
+  methods: {
+    call_fetchWeatherData() {
+      this.fetchWeatherData(this.picked);
     }
-  })
+  },
+  computed: {
+    getImageFileName() {
+      if (this.getWeatherData.weather[0].main === "") {
+        return require("@/assets/logo.png");
+      } else {
+        return require("@/assets/" +
+          this.getWeatherData.weather[0].main +
+          ".png");
+      }
+    }
+  }
 };
 </script>
 

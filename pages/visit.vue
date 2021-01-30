@@ -36,36 +36,28 @@
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapActions } from "vuex";
 import selected from "../components/selected";
 // import { mapMutations, mapGetters, mapActions } from "vuex";
 import global from "~/mixins/global.js";
 export default {
+  mixins: [global],
   components: {
     selected
   },
-  mixins: [global],
-
   data: () => ({
     items: ["Foo", "Bar", "Fizz", "Buzz"],
     picked: "",
     joke: {},
     loading: false,
-    jamela: ""
+    jamela: "",
+    sp: 1
   }),
-
-  //   computed: {
-  //     ...mapGetters("jokes", ["getJokeData"]),
-  //   },
 
   created() {
     this.callingJokeMeth();
     this.fetchWeatherData("dhaka");
   },
   methods: {
-    ...mapActions("jokes", ["getRandomJoke"]),
-    ...mapActions("weather", ["fetchWeatherData"]),
-
     callingJokeMeth() {
       this.jamela = "";
       this.loading = true;
@@ -80,7 +72,9 @@ export default {
           this.loading = false;
           this.jamela = "jamela hosse";
         });
-    }
+    },
+
+    sum() {}
   }
 };
 </script>
