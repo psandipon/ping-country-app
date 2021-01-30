@@ -1,19 +1,17 @@
 <template>
   <div>
-    <div>
-      <v-card-title>
-        <v-autocomplete
-          v-model="picked"
-          :items="items"
-          label="Input Country Name"
-          @change="call_fetchWeatherData"
-          placeholder="Country"
-          filled
-          rounded
-          dense
-        ></v-autocomplete>
-      </v-card-title>
-    </div>
+    <v-card-title>
+      <v-autocomplete
+        v-model="picked"
+        :items="items"
+        label="Input Country Name"
+        @change="call_fetchWeatherData"
+        placeholder="Country"
+        filled
+        rounded
+        dense
+      ></v-autocomplete>
+    </v-card-title>
     <div>
       <v-card :loading="loading" class="mx-auto my-12" max-width="374">
         <template slot="progress">
@@ -38,9 +36,9 @@
           >
             <v-chip>{{ getWeatherData.weather[0].main }}</v-chip>
 
-            <v-chip>{{ getWeatherData.main.temp }} °C</v-chip>
+            <v-chip>{{ getWeatherData.main.temp }} °F</v-chip>
 
-            <v-chip>{{ getWeatherData.main.feels_like }} °C</v-chip>
+            <v-chip>{{ getWeatherData.main.feels_like }} °F</v-chip>
           </v-chip-group>
         </v-card-text>
 
@@ -69,7 +67,7 @@
           <!-- </v-btn> -->
         </v-card-actions>
       </v-card>
-      {{ getAllCountriesData }}
+      <!-- {{ getAllCountriesData }} -->
       <!-- <pre style=" text-align: left;"> {{ getWeatherData }} </pre> -->
     </div>
   </div>
