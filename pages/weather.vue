@@ -11,15 +11,16 @@
 
       <v-img height="250" :src="getImageFileName"></v-img>
       <v-card-title>
-        <v-text-field
+        <v-autocomplete
           v-model="picked"
+          :items="items"
           label="Input Country Name"
           @change="call_fetchWeatherData"
           placeholder="Dense & Rounded"
           filled
           rounded
           dense
-        ></v-text-field>
+        ></v-autocomplete>
       </v-card-title>
 
       <v-divider class="mx-4"></v-divider>
@@ -42,7 +43,7 @@
 
       <v-card-actions>
         <!-- <v-btn color="deep-purple lighten-2" text @click="items"> -->
-        <div>
+        <!-- <div>
           <v-row align="center">
             <v-col cols="12">
               <v-select
@@ -54,7 +55,7 @@
               ></v-select>
             </v-col>
           </v-row>
-        </div>
+        </div> -->
 
         <v-progress-circular
           v-if="loading"
@@ -78,7 +79,9 @@ export default {
   },
   data: () => ({
     items: ["Bangladesh", "USA", "Canada", "China", "France"],
-    picked: ""
+    picked: "",
+    loading: false,
+    selection: true
   }),
   methods: {
     call_fetchWeatherData() {
