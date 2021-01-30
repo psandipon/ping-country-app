@@ -4,6 +4,7 @@
       <v-img height="250" :src="getImageFileName"></v-img>
       <v-divider class="mx-4"></v-divider>
       <v-card-title>Today's Weather</v-card-title>
+      <v-img height="50" :src="weatherIcon"></v-img>
       <v-card-text>
         <v-chip-group
           v-model="selection"
@@ -38,6 +39,9 @@ export default {
           this.getWeatherData.weather[0].main +
           ".png");
       }
+    },
+    weatherIcon() {
+      return `http://openweathermap.org/img/wn/${this.getWeatherData.weather[0].icon}@2x.png`;
     }
   }
 };
