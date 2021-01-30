@@ -5,13 +5,14 @@ export default {
   
   data() {
     return {
+    
       // snackbarFail: true,
       // snackbarSuccess: false,
     }
   },
   computed: {
-    ...mapGetters("jokes", ["getJokeData"])
-    // ...mapGetters('user-info', ['getToken']),
+    ...mapGetters("jokes", ["getJokeData"]),
+    ...mapGetters('weather', ['getWeatherData']),
     // ...mapGetters('order', ['getNotificationSuccess','getNotificationFail']),
     
     // hasToken() {
@@ -36,6 +37,8 @@ export default {
 //   },
   methods: {
     ...mapActions('jokes', ['getRandomJoke']),
+    ...mapActions("weather", ["fetchWeatherData"]),
+ 
     // ...mapMutations('products', ['SET_CURRENT_PRODUCT_ITEM']),
   },
   watch: {},
