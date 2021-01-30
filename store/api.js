@@ -8,3 +8,6 @@ export const random_joke_api = prefix + "random/";
 
 
 export const search_weather_api = "http://api.openweathermap.org/data/2.5/weather"
+
+// country api
+export const country_api = "https://restcountries.eu/rest/v2/all"
