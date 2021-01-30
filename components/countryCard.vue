@@ -1,29 +1,29 @@
 <template>
   <div>
     <v-card class="mx-auto" max-width="344">
-      <v-img
-        src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-        height="200px"
-      ></v-img>
-
-      <v-card-title>
-        Top western road trips
-      </v-card-title>
-
-      <v-card-subtitle>
-        1,000 miles of wonder
-      </v-card-subtitle>
+      <div v-if="!(showBangladeshData === undefined)">
+        <v-img :src="showBangladeshData.flag" height="200px"></v-img>
+        <v-card-title>
+          {{ showBangladeshData.name }}
+        </v-card-title>
+        <v-row align="left" class="ml-2">
+          <v-card-subtitle>
+            {{ showBangladeshData.capital }}
+          </v-card-subtitle>
+        </v-row>
+      </div>
 
       <v-card-actions>
-        <v-btn color="orange lighten-2" text>
+        <v-btn color="orange lighten-2" text @click="show = !show">
+          <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
           Explore
         </v-btn>
 
-        <v-spacer></v-spacer>
+        <!-- <v-spacer></v-spacer> -->
 
-        <v-btn icon @click="show = !show">
+        <!-- <v-btn icon @click="show = !show">
           <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
-        </v-btn>
+        </v-btn> -->
       </v-card-actions>
 
       <v-expand-transition>
@@ -40,11 +40,30 @@
         </div>
       </v-expand-transition>
     </v-card>
+    <!-- <v-img :src="showBangladeshData.flag" height="200px"></v-img> -->
+    <!-- {{ getAllCountriesData }}
+     -->
+    <!-- {{ showBangladeshData.flag }} -->
   </div>
 </template>
 
 <script>
-export default {};
+import global from "~/mixins/global.js";
+export default {
+  mixins: [global],
+  data: () => ({
+    show: false
+  }),
+  computed: {
+    showBangladeshData() {
+      let found = this.getAllCountriesData.find(country => {
+        if (country.name === "Bangladesh") return country;
+      });
+
+      return found;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>
