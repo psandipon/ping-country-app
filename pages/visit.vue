@@ -55,7 +55,7 @@ export default {
 
   created() {
     this.callingJokeMeth();
-    this.fetchWeatherData("dhaka");
+    // this.fetchWeatherData("dhaka");
   },
   methods: {
     callingJokeMeth() {

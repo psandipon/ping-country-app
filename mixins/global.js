@@ -8,8 +8,10 @@ export default {
     
     }
   },
-  mounted() {
-  },
+  // mounted() {
+  //   // getAllCountriesData
+  //   this.fetchCountryData();
+  // },
   computed: {
     ...mapGetters("jokes", ["getJokeData"]),
     ...mapGetters('weather', ['getWeatherData']),

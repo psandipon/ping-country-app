@@ -15,7 +15,9 @@
 <script>
 import navigation from "~/layouts/navigation.vue";
 
+import global from "~/mixins/global.js";
 export default {
+  mixins: [global],
   components: {
     navigation
   },
@@ -24,6 +26,10 @@ export default {
       title: "Hello World!"
     };
   }
+  // mounted() {
+  //   // getAllCountriesData
+  //   this.fetchCountryData();
+  // }
 };
 </script>
 
