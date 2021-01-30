@@ -64,6 +64,12 @@ export default {
           title: "weather",
           to: "/weather",
           badge: true
+        },
+        {
+          icon: "mdi-earth",
+          title: "country",
+          to: "/country",
+          badge: true
         }
       ],
       miniVariant: false,

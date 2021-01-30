@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-card class="mx-auto my-5" max-width="374">
-      <!-- {{ selection }} -->
       <v-img height="250" :src="getImageFileName"></v-img>
       <v-divider class="mx-4"></v-divider>
       <v-card-title>Today's Weather</v-card-title>
