@@ -60,9 +60,12 @@ export default {
 
   created() {
     this.callingJokeMeth();
+    this.fetchWeatherData("dhaka");
   },
   methods: {
     ...mapActions("jokes", ["getRandomJoke"]),
+    ...mapActions("weather", ["fetchWeatherData"]),
+
     callingJokeMeth() {
       this.jamela = "";
       this.loading = true;
