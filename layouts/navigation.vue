@@ -60,7 +60,7 @@ export default {
           badge: false
         },
         {
-          icon: "mdi-weather",
+          icon: "mdi-weather-lightning-rainy",
           title: "weather",
           to: "/weather",
           badge: true
