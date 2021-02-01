@@ -1,6 +1,10 @@
 <template>
   <div>
-    <v-card class="mx-auto" max-width="500">
+    <v-card
+      class="mx-auto"
+      max-width="500"
+      v-if="!(getAllCountriesNames[0] == undefined)"
+    >
       <v-img :src="getAllCountriesNames[0].flag" height="200px"></v-img>
       <v-card-title>
         {{ getAllCountriesNames[0].name }}
