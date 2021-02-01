@@ -26,7 +26,6 @@ export default {
   mixins: [global],
 
   data: () => ({
-    items: ["Bangladesh", "USA", "Canada", "China", "France"],
     selection: true
   }),
   methods: {},
