@@ -10,6 +10,7 @@ import {
 // initial state
 export const state = () => ({
     allCountries:[],
+    currentCountry:{}
 })
 
 
@@ -17,6 +18,10 @@ export const getters = {
   getAllCountriesData:(state) => {
     return state.allCountries;
   },
+
+  getCurrentCountry:(state) => {
+    return state.currentCountry
+  }
  
 };
 
@@ -30,6 +35,15 @@ const mutations = {
 
   UNSET_ALL_COUNTRY_DATA(state) {
     state.allCountries = [];
+  },
+
+  SET_CURRENT_COUNTRY_DATA(state, data) {
+    state.currentCountry = data;
+    // console.log("mutated")
+  },
+
+  UNSET_CURRENT_COUNTRY_DATA(state) {
+    state.currentCountry = {};
   },
 
 };

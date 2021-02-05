@@ -4,10 +4,16 @@
       v-model="picked"
       :items="getAllCountriesData"
       label="Input Country Name"
-      @change="call_fetchCountryNames"
+      @change="gotoInfoPage"
       :item-text="item => item.name"
       item-value="name"
-    ></v-autocomplete>
+      rounded
+      outlined
+      prepend-inner-icon="search"
+      close
+      return-object
+    >
+    </v-autocomplete>
   </div>
 </template>
 
@@ -16,16 +22,20 @@ import global from "~/mixins/global.js";
 export default {
   mixins: [global],
   data: () => ({
-    picked: "Bangladesh"
+    picked: {}
   }),
   created() {
-    this.fetchCountryNames(this.picked);
+    // this.fetchCountryNames(this.picked);
+    // this.$router.push("/country_info");
   },
   methods: {
-    call_fetchCountryNames() {
-      if (!(this.picked === "")) {
-        this.fetchCountryNames(this.picked);
-      }
+    gotoInfoPage() {
+      // console.log("here");
+      // // if (!(this.picked === "")) {
+      // //   this.fetchCountryNames(this.picked);
+      // // }
+      this.SET_CURRENT_COUNTRY_DATA(this.picked);
+      this.$router.push("/country_info");
     }
   }
 };

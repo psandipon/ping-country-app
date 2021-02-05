@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div>
+    <div v-if="false">
       <Logo />
       <h1 class="title">
         weather-app
@@ -31,7 +31,10 @@
 <script>
 import global from "~/mixins/global.js";
 export default {
-  mixins: [global]
+  mixins: [global],
+  created() {
+    this.$router.push("/country");
+  }
 };
 </script>
 

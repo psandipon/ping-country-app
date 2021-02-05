@@ -15,7 +15,7 @@ export default {
   computed: {
     ...mapGetters("jokes", ["getJokeData"]),
     ...mapGetters('weather', ['getWeatherData']),
-    ...mapGetters('country',['getAllCountriesData']),
+    ...mapGetters('country',['getAllCountriesData','getCurrentCountry']),
     ...mapGetters('countryName',['getAllCountriesNames']),
 
   },
@@ -24,6 +24,8 @@ export default {
     ...mapActions("weather", ["fetchWeatherData"]),
     ...mapActions('country',["fetchCountryData"]),
     ...mapActions('countryName',["fetchCountryNames"]),
+
+    ...mapMutations('country', ['SET_CURRENT_COUNTRY_DATA'])
   },
   watch: {},
 }

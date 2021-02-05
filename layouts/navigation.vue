@@ -2,15 +2,15 @@
   <div>
     <v-app-bar :clipped-left="clipped" fixed app color="gray" elevate-on-scroll>
       <!-- <v-container class="py-0 pb-0 mb-5 fill-height"> -->
-      <v-avatar tile class="mr-5" size="65">
+      <!-- <v-avatar tile class="mr-5" size="65">
         <img :src="require('@/assets/logo.png')" alt="John" />
-      </v-avatar>
+      </v-avatar> -->
 
-      <v-toolbar-title style="margin-left:10px" class="mr-5">
-        Weather
+      <!-- <v-toolbar-title style="margin-left:10px" class="mr-5">
+        Country
         <span class="cyan--text ml-0"> App </span>
-      </v-toolbar-title>
-      <v-spacer> </v-spacer>
+      </v-toolbar-title> -->
+      <!-- <v-spacer> </v-spacer> -->
 
       <div class="d-none d-sm-flex ml-4">
         <v-btn
@@ -20,7 +20,7 @@
           :key="i"
           :to="item.to"
         >
-          <v-icon> {{ item.icon }}</v-icon>
+          <v-icon left> {{ item.icon }}</v-icon>
           <span>{{ item.title }}</span>
 
           <!-- <v-icon class="mr-2"> {{ item.icon }}</v-icon> -->
@@ -47,27 +47,27 @@ export default {
       fixed: false,
       items: [
         //   Home, Tax, Living Cost, Immigration.
-        {
-          icon: "mdi-home",
-          title: "Home",
-          to: "/",
-          badge: false
-        },
-        {
-          icon: "mdi-map",
-          title: "Visit",
-          to: "/visit",
-          badge: false
-        },
-        {
-          icon: "mdi-weather-lightning-rainy",
-          title: "weather",
-          to: "/weather",
-          badge: true
-        },
+        // {
+        //   icon: "mdi-home",
+        //   title: "Home",
+        //   to: "/",
+        //   badge: false
+        // },
+        // {
+        //   icon: "mdi-map",
+        //   title: "Visit",
+        //   to: "/visit",
+        //   badge: false
+        // },
+        // {
+        //   icon: "mdi-weather-lightning-rainy",
+        //   title: "weather",
+        //   to: "/weather",
+        //   badge: true
+        // },
         {
           icon: "mdi-earth",
-          title: "country",
+          title: "country App",
           to: "/country",
           badge: true
         }
