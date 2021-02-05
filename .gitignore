@@ -90,4 +90,4 @@ sw.*
 *.swp
 
 
-store/token.js
+# store/token.js

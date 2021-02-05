@@ -1,0 +1,1 @@
+export const weather_token = "ea334fcd31745f894f3fec567ab96474";
