@@ -1,7 +1,8 @@
 <template>
   <div>
     <div v-if="Object.keys(getCurrentCountry).length != 0">
-      <!-- <pre style="text-align: left"> {{ getCurrentCountry }} </pre> -->
+      <!-- <pre style="text-align: left"> {{ getCurrentCountry }} </pre>
+       -->
 
       <v-container v-if="true">
         <v-row no-gutters>
